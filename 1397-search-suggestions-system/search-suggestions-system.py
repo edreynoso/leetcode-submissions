@@ -7,10 +7,6 @@ class Solution(object):
         :rtype: List[List[str]]
         """
 
-        products.sort()
-
-        map = {}
-
         res = []
 
         for i in range(len(searchWord)):
