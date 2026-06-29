@@ -14,11 +14,9 @@ class Solution(object):
         prev = 1
         current = 1
 
-        number = 0
-
         for i in range(2, n):
 
             number = prev + current
             prev, current = current, number
 
-        return number
+        return current
