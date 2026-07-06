@@ -3,9 +3,12 @@ class Solution:
 
         n = len(nums)
         
-        indicies = {num: [] for num in nums}
+        indicies = defaultdict(list)
+        pos = [0] * n
 
         for i, num in enumerate(nums):
+
+            pos[i] = len(indicies[num])
 
             indicies[num].append(i) 
 
@@ -15,16 +18,15 @@ class Solution:
 
             target = nums[q]
 
-            if len(indicies[target]) == 1:
+            arr = indicies.get(target)
+            m = len(arr)
+
+            if m == 1:
                 ans.append(-1)
 
             else:
 
-                arr = indicies.get(target)
-
-                m = len(arr)
-
-                next = bisect_left(arr, q)
+                next = pos[q]
 
                 left = arr[((next - 1) % m)]
                 right = arr[((next + 1) % m)]
