@@ -1,22 +1,18 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
 
-        n = len(prices)
-        
-        dp = [0] * n
+        min_price = prices[0]
 
-        dp[n-1] = prices[n-1]
+        max_profit = 0
 
-        for i in range(n-2, -1, -1):
+        for price in prices:
 
-            dp[i] = max(dp[i+1], prices[i])
+            min_price = min(price, min_price)
 
-        profit = 0
+            max_profit = max(max_profit, price - min_price)
 
-        for i in range(n):
+        return max_profit
 
-            profit = max(profit, dp[i] - prices[i])
 
-        return profit
 
 
