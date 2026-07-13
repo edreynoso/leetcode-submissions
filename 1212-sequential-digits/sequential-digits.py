@@ -1,11 +1,5 @@
-class Solution(object):
-    def sequentialDigits(self, low, high):
-        """
-        :type low: int
-        :type high: int
-        :rtype: List[int]
-        """
-
+class Solution:
+    def sequentialDigits(self, low: int, high: int) -> List[int]:
         c = "123456789"
         a = []
 
